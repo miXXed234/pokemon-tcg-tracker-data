@@ -1,0 +1,6 @@
+# Cardmarket's own downloads (price guide + product catalogue). They are ours to
+# use, not ours to republish: Cardmarket hands them to logged-in users, and this
+# repository is public. Keep them local and commit only the few prices we derive.
+price_guide_*.json
+products_singles_*.json
+products_nonsingles_*.json

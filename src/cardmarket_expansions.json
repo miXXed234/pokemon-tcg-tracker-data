@@ -1,0 +1,4 @@
+{
+  "_comment": "Set id -> Cardmarket idExpansion, for tools/prices-from-cardmarket.mjs. Cardmarket's downloads carry no set code, so this mapping is by hand. To find an id: search products_singles_6.json for a card name you know is in the set and look at its idExpansion, then check that the expansion's product count and first few names match the set.",
+  "mep": 6232
+}

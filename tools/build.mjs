@@ -51,6 +51,9 @@ const data = {
   fallbackImages: readJson('src/fallback/card_images.json'),
   supplements: readSetFiles('src/manual_cards'),
   seeds: readSetFiles('src/promo_seed'),
+  // When the curated prices were taken off Cardmarket's daily guide, so the app
+  // can date them honestly instead of showing them as fetched-just-now.
+  ...(existsSync(join(ROOT, 'src/prices_meta.json')) ? readJson('src/prices_meta.json') : {}),
 };
 
 writeFileSync(join(ROOT, 'data.json'), JSON.stringify(data) + '\n');
