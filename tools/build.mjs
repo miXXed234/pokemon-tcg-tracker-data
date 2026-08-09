@@ -42,7 +42,9 @@ const data = {
   // Bumped only on a breaking shape change; the app refuses a version it
   // doesn't know rather than reading it wrong.
   version: 1,
-  generatedAt: Date.now(),
+  // Deliberately no build timestamp: it would rewrite data.json on every run
+  // and bury real changes in noise. Git records when, and the app dates the
+  // catalogue by when it fetched it, which is what "last updated" means there.
   cardImages,
   setLogos: logos,
   setLogosDe: logosDe,
