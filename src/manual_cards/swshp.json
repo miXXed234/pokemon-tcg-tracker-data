@@ -1,0 +1,78 @@
+[
+  {
+    "localId": "SWSH299",
+    "name": "Jirachi V",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "holo",
+        "label": "Holo",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/SWSH-Black-Star-Promos/Jirachi-V-V1-SWSH299?language=1"
+      },
+      {
+        "id": "oversized",
+        "label": "Oversized",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/SWSH-Black-Star-Promos/Jirachi-V-V2-SWSH299?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "SWSH300",
+    "name": "Unown V",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "holo",
+        "label": "Holo",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/SWSH-Black-Star-Promos/Unown-V-SWSH300?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "SWSH303",
+    "name": "Bulbasaur",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "illustration-contest",
+        "label": "Illustration Contest",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/SWSH-Black-Star-Promos/Bulbasaur-SWSH303?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "SWSH304",
+    "name": "Arcanine",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "illustration-contest",
+        "label": "Illustration Contest",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/SWSH-Black-Star-Promos/Arcanine-SWSH304?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "SWSH305",
+    "name": "Greninja",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "illustration-contest",
+        "label": "Illustration Contest",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/SWSH-Black-Star-Promos/Greninja-SWSH305?language=1"
+      }
+    ]
+  }
+]

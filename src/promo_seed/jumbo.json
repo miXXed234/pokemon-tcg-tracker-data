@@ -1,0 +1,282 @@
+[
+  {
+    "localId": "001",
+    "name": "Pikachu",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "002",
+    "name": "Articuno, Moltres, and Zapdos",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "003",
+    "name": "Electabuzz",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "004",
+    "name": "Rocket's Sneasel",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "005",
+    "name": "Hitmonchan",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "006",
+    "name": "Rocket's Scizor",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "007",
+    "name": "Dark Ivysaur",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "008",
+    "name": "Dark Venusaur",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "009",
+    "name": "Rocket's Mewtwo",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "010",
+    "name": "Rocket's Hitmonchan",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "011",
+    "name": "Chikorita",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "012",
+    "name": "Cyndaquil",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "013",
+    "name": "Totodile",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "014",
+    "name": "Bulbasaur",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "015",
+    "name": "Charmander",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "016",
+    "name": "Pikachu",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "017",
+    "name": "Squirtle",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "018",
+    "name": "Combusken",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "019",
+    "name": "Grovyle",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "020",
+    "name": "Marshtomp",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "024",
+    "name": "Shadow Lugia",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "025",
+    "name": "Mudkip",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "026",
+    "name": "Torchic",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "027",
+    "name": "Treecko",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "028",
+    "name": "Darkrai",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "029",
+    "name": "Dialga",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "030",
+    "name": "Palkia",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "031",
+    "name": "Regigigas",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "032",
+    "name": "Arceus",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "033",
+    "name": "Zorua and Celebi",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "034",
+    "name": "Zoroark and Legendary Pokémon",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "035",
+    "name": "Chimchar",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "036",
+    "name": "Piplup",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "037",
+    "name": "Turtwig",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "038",
+    "name": "Snivy",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "039",
+    "name": "Tepig",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "040",
+    "name": "Oshawott",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "041",
+    "name": "Zoroark",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "042",
+    "name": "Victini",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "043",
+    "name": "Darkrai",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "044",
+    "name": "Snivy",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "045",
+    "name": "Tepig",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "046",
+    "name": "Oshawott",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "047",
+    "name": "Xerneas",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "048",
+    "name": "Yveltal",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "049",
+    "name": "Kyogre",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "050",
+    "name": "Groudon",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "051",
+    "name": "Rayquaza",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "052",
+    "name": "Latios",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "053",
+    "name": "Lugia",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "054",
+    "name": "Lucario",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "055",
+    "name": "Jirachi",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "056",
+    "name": "Pansear",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "058",
+    "name": "Pikachu",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "059",
+    "name": "Fearow",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "060",
+    "name": "M Gengar-EX",
+    "category": "Pokemon"
+  }
+]

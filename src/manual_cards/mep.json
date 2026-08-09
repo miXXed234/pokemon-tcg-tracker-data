@@ -1,0 +1,706 @@
+[
+  {
+    "localId": "046",
+    "name": "Chikorita",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "30th-anniversary",
+        "label": "30th Anniversary",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Chikorita-MEP046?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "047",
+    "name": "Cyndaquil",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "30th-anniversary",
+        "label": "30th Anniversary",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Cyndaquil-MEP047?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "048",
+    "name": "Totodile",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "30th-anniversary",
+        "label": "30th Anniversary",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Totodile-MEP048?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "049",
+    "name": "Snivy",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "30th-anniversary",
+        "label": "30th Anniversary",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Snivy-MEP049?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "050",
+    "name": "Tepig",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "30th-anniversary",
+        "label": "30th Anniversary",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Tepig-MEP050?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "051",
+    "name": "Oshawott",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "30th-anniversary",
+        "label": "30th Anniversary",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Oshawott-MEP051?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "052",
+    "name": "Grookey",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "30th-anniversary",
+        "label": "30th Anniversary",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Grookey-MEP052?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "053",
+    "name": "Scorbunny",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "30th-anniversary",
+        "label": "30th Anniversary",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Scorbunny-MEP053?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "054",
+    "name": "Sobble",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "30th-anniversary",
+        "label": "30th Anniversary",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Sobble-MEP054?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "055",
+    "name": "Treecko",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "30th-anniversary",
+        "label": "30th Anniversary",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Treecko-MEP055?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "056",
+    "name": "Torchic",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "30th-anniversary",
+        "label": "30th Anniversary",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Torchic-MEP056?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "057",
+    "name": "Mudkip",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "30th-anniversary",
+        "label": "30th Anniversary",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Mudkip-MEP057?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "058",
+    "name": "Chespin",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "30th-anniversary",
+        "label": "30th Anniversary",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Chespin-MEP058?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "059",
+    "name": "Fennekin",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "30th-anniversary",
+        "label": "30th Anniversary",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Fennekin-MEP059?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "060",
+    "name": "Froakie",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "30th-anniversary",
+        "label": "30th Anniversary",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Froakie-MEP060?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "061",
+    "name": "Sprigatito",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "30th-anniversary",
+        "label": "30th Anniversary",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Sprigatito-MEP061?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "062",
+    "name": "Fuecoco",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "30th-anniversary",
+        "label": "30th Anniversary",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Fuecoco-MEP062?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "063",
+    "name": "Quaxly",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "30th-anniversary",
+        "label": "30th Anniversary",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Quaxly-MEP063?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "072",
+    "name": "Mega Clefable ex",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "holo",
+        "label": "Holo",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Mega-Clefable-ex-MEP072?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "073",
+    "name": "Mega Gengar ex",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "holo",
+        "label": "Holo",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Mega-Gengar-ex-MEP073?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "081",
+    "name": "Mega Greninja ex",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "holo",
+        "label": "Holo",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Mega-Greninja-ex-V1-MEP081?language=1"
+      },
+      {
+        "id": "oversized",
+        "label": "Oversized",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Mega-Greninja-ex-MEP081?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "082",
+    "name": "Miraidon",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "expansion-stamp",
+        "label": "Expansion Stamp",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Miraidon-MEP082?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "083",
+    "name": "Slowbro",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "expansion-stamp",
+        "label": "Expansion Stamp",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Slowbro-MEP083?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "084",
+    "name": "Dhelmise",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "expansion-stamp",
+        "label": "Expansion Stamp",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Dhelmise-MEP084?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "085",
+    "name": "Bastiodon",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "expansion-stamp",
+        "label": "Expansion Stamp",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Bastiodon-MEP085?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "086",
+    "name": "Slowpoke",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "cosmo-holo",
+        "label": "Cosmo Holo",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Slowpoke-MEP086?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "087",
+    "name": "Binacle",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "cosmo-holo",
+        "label": "Cosmo Holo",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Binacle-MEP087?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "088",
+    "name": "Zarude",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "holo",
+        "label": "Holo",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Zarude-V1-MEP088?language=1"
+      },
+      {
+        "id": "pokemon-center-stamp",
+        "label": "Pokemon Center Stamp",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Zarude-V2-MEP088?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "089",
+    "name": "Mega Zeraora ex",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "holo",
+        "label": "Holo",
+        "coarse": "HOLO",
+        "cardmarket": null
+      }
+    ]
+  },
+  {
+    "localId": "090",
+    "name": "Mega Darkrai ex",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "holo",
+        "label": "Holo",
+        "coarse": "HOLO",
+        "cardmarket": null
+      }
+    ]
+  },
+  {
+    "localId": "091",
+    "name": "Mega Dragonite ex",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "holo",
+        "label": "Holo",
+        "coarse": "HOLO",
+        "cardmarket": null
+      }
+    ]
+  },
+  {
+    "localId": "093",
+    "name": "Pikachu",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "world-championships",
+        "label": "World Championships",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Pikachu-V1-MEP093?language=1"
+      },
+      {
+        "id": "play-pokemon-winner",
+        "label": "Play! Pokemon (Winner)",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Pikachu-V2-MEP093?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "094",
+    "name": "Alolan Exeggutor",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "30th-anniversary",
+        "label": "30th Anniversary",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Alolan-Exeggutor-MEP094?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "095",
+    "name": "Lucario",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "30th-anniversary",
+        "label": "30th Anniversary",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Lucario-MEP095?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "096",
+    "name": "Moltres",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "30th-anniversary",
+        "label": "30th Anniversary",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Moltres-MEP096?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "097",
+    "name": "Articuno",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "30th-anniversary",
+        "label": "30th Anniversary",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Articuno-MEP097?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "098",
+    "name": "Zapdos",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "30th-anniversary",
+        "label": "30th Anniversary",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Zapdos-MEP098?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "099",
+    "name": "Greninja ex",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "30th-anniversary",
+        "label": "30th Anniversary",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Greninja-ex-MEP099?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "100",
+    "name": "Sylveon ex",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "30th-anniversary",
+        "label": "30th Anniversary",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Sylveon-ex-MEP100?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "101",
+    "name": "Nidorina",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "30th-anniversary",
+        "label": "30th Anniversary",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Nidorina-V1-MEP101?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "102",
+    "name": "Victini",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "30th-anniversary",
+        "label": "30th Anniversary",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Victini-MEP102?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "103",
+    "name": "Zeraora",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "30th-anniversary",
+        "label": "30th Anniversary",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Zeraora-MEP103?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "104",
+    "name": "Mewtwo",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "30th-anniversary",
+        "label": "30th Anniversary",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Mewtwo-MEP104?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "105",
+    "name": "Mew",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "30th-anniversary",
+        "label": "30th Anniversary",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Mew-MEP105?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "106",
+    "name": "Ditto",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "30th-anniversary",
+        "label": "30th Anniversary",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Ditto-MEP106?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "107",
+    "name": "Pikachu ex",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "30th-anniversary",
+        "label": "30th Anniversary",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Pikachu-ex-MEP107?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "108",
+    "name": "Espeon ex",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "30th-anniversary",
+        "label": "30th Anniversary",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Espeon-ex-MEP108?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "109",
+    "name": "Pikachu ex",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "30th-anniversary",
+        "label": "30th Anniversary",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Pikachu-ex-MEP109?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "110",
+    "name": "Umbreon ex",
+    "category": "Pokemon",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "30th-anniversary",
+        "label": "30th Anniversary",
+        "coarse": "HOLO",
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Umbreon-ex-MEP110?language=1"
+      }
+    ]
+  }
+]

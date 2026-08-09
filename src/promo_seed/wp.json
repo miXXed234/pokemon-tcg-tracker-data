@@ -1,0 +1,37 @@
+[
+  {
+    "localId": "001",
+    "name": "Pikachu",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "002",
+    "name": "Kabuto",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "003",
+    "name": "Wartortle",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "004",
+    "name": "Dark Arbok",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "005",
+    "name": "Dark Charmeleon",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "006",
+    "name": "Misty's Psyduck",
+    "category": "Pokemon"
+  },
+  {
+    "localId": "007",
+    "name": "Brock's Vulpix",
+    "category": "Pokemon"
+  }
+]
