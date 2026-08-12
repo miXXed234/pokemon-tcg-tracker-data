@@ -470,6 +470,19 @@
     ]
   },
   {
+    "localId": "092",
+    "name": "Paradise Resort",
+    "category": "Trainer",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "holo",
+        "label": "Holo",
+        "coarse": "HOLO"
+      }
+    ]
+  },
+  {
     "localId": "093",
     "name": "Pikachu",
     "category": "Pokemon",
@@ -724,6 +737,20 @@
         "label": "30th Anniversary",
         "coarse": "HOLO",
         "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/MEP-Black-Star-Promos/Umbreon-ex-MEP110?language=1"
+      }
+    ]
+  },
+  {
+    "localId": "120",
+    "name": "Celebratory Fanfare",
+    "category": "Trainer",
+    "rarity": "Promo",
+    "variants": [
+      {
+        "id": "holo",
+        "label": "Holo",
+        "coarse": "HOLO",
+        "priceCents": 50913
       }
     ]
   }

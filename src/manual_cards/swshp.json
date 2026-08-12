@@ -29,7 +29,8 @@
         "id": "holo",
         "label": "Holo",
         "coarse": "HOLO",
-        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/SWSH-Black-Star-Promos/Unown-V-SWSH300?language=1"
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/SWSH-Black-Star-Promos/Unown-V-SWSH300?language=1",
+        "priceCents": 90
       }
     ]
   },
@@ -57,7 +58,8 @@
         "id": "illustration-contest",
         "label": "Illustration Contest",
         "coarse": "HOLO",
-        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/SWSH-Black-Star-Promos/Arcanine-SWSH304?language=1"
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/SWSH-Black-Star-Promos/Arcanine-SWSH304?language=1",
+        "priceCents": 9206
       }
     ]
   },
@@ -71,7 +73,8 @@
         "id": "illustration-contest",
         "label": "Illustration Contest",
         "coarse": "HOLO",
-        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/SWSH-Black-Star-Promos/Greninja-SWSH305?language=1"
+        "cardmarket": "https://www.cardmarket.com/en/Pokemon/Products/Singles/SWSH-Black-Star-Promos/Greninja-SWSH305?language=1",
+        "priceCents": 5566
       }
     ]
   }
