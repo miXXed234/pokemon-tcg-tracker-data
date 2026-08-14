@@ -4,14 +4,15 @@ Curated catalogue data for the private [Pokémon TCG Tracker](https://github.com
 Android app: the cards, artwork and set logos that [TCGdex](https://tcgdex.dev)
 does not serve.
 
-The app downloads a single generated file, `data.json`, and streams the images
-straight from this repository. Publishing a correction or a new promo card is a
+The app downloads a generated file, `data.json`, and streams the images straight
+from this repository. Publishing a correction or a new promo card is a
 `git push`, not a new app build.
 
 ## Layout
 
 ```
-data.json              generated, the only file the app fetches
+data.json              generated, fetched on every app start
+sealed.json            generated, ~450 KB, fetched only by the sealed-products screen
 src/
   set_logos.json       set id -> logo filename, for both languages
   manual_cards/*.json  curated cards for sets TCGdex only half covers
@@ -22,7 +23,13 @@ images/
   logos/<file>.png     set logos
   logos/de/<file>.png  german set logos, for sets TCGdex has no german logo for
 tools/build.mjs        regenerates data.json
+tools/sealed-from-cardmarket.mjs   regenerates sealed.json
 ```
+
+`sealed.json` is kept out of `data.json` on purpose: it is eight times the size,
+and only someone tracking sealed products ever needs it. Like the curated card
+prices it comes from Cardmarket's daily download, which needs a login, so both
+are refreshed by hand rather than by a worker.
 
 ## Making a change
 
