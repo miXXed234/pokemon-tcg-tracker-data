@@ -167,7 +167,11 @@
     "svp": "svp.png",
     "xya": "xya.png",
     "tk-bw-e": "tk_bw_e.png",
-    "tk-bw-z": "tk_bw_z.png"
+    "tk-bw-z": "tk_bw_z.png",
+    "M6": "m6.png",
+    "M2a": "m2a.png",
+    "M4": "m4.png",
+    "M5": "m5.png"
   },
   "logosDe": {
     "base1": "base1.png",
