@@ -113,6 +113,26 @@ def our_cards(set_id):
     return api(f"{TCGDEX}/{urllib.parse.quote(set_id)}").get("cards", [])
 
 
+def pictured(card):
+    """Whether TCGdex really has a picture for this card, not just a url for one.
+
+    It advertises an image for every card of a set whether or not the file is
+    there: all three lettered Mews of the 30th set carry one and all three 404.
+    Trusting the url left them as grey boxes in the app, so the url gets asked.
+    """
+    url = card.get("image")
+    if not url:
+        return False
+    request = urllib.request.Request(f"{url}/high.webp", headers={"User-Agent": AGENT})
+    request.get_method = lambda: "HEAD"
+    time.sleep(PAUSE)
+    try:
+        with urllib.request.urlopen(request, timeout=30) as response:
+            return response.status == 200
+    except Exception:
+        return False
+
+
 def pair_up(ours, theirs):
     """Our card id -> their card, by the three rules in the module docstring."""
     by_number, by_name = {}, {}
@@ -171,7 +191,12 @@ def run(set_id, their_id, logos):
     # the app, so fetching a card that already has one would swap a working
     # image for an identical one and carry the weight in the repository for
     # nothing -- the first run did exactly that for all 161 cards of `30th`.
-    ours = [c for c in our_cards(set_id) if not c.get("image")]
+    # A card already on disk is kept without asking, so a set that is done
+    # costs nothing to re-run.
+    ours = [
+        c for c in our_cards(set_id)
+        if not (ROOT / "images" / "cards" / f"{c['id']}.jpg").exists() and not pictured(c)
+    ]
     if not ours:
         print(f"{set_id:8s} logo {'new' if got_logo else 'kept'}, "
               f"no cards to fetch (TCGdex pictures them all)")
