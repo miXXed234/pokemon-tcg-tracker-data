@@ -179,7 +179,8 @@
     "swsh10tg": "swsh10tg.png",
     "swsh12tg": "swsh12tg.png",
     "cel25cc": "cel25cc.png",
-    "mee": "mee.png"
+    "mee": "mee.png",
+    "sve": "sve.png"
   },
   "logosDe": {
     "base1": "base1.png",
@@ -267,6 +268,7 @@
     "swsh12.5gg": "swsh12_5gg.png",
     "swsh12tg": "swsh12tg.png",
     "swsh9tg": "swsh9tg.png",
-    "30th-c": "30th_c.png"
+    "30th-c": "30th_c.png",
+    "sve": "sve.png"
   }
 }
