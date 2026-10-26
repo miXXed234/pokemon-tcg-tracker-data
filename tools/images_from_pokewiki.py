@@ -1,4 +1,4 @@
-"""Pulls card images off PokeWiki for sets neither TCGdex nor pokemontcg.io has.
+"""Pulls card images and German set logos off PokeWiki, the third source.
 
 The third source, and the last resort. It is German-language, so what it has is
 the German print of a card, which suits this app: its cards are browsed under
@@ -20,6 +20,7 @@ afterwards, or nothing reaches the app.
 """
 
 import json
+import re
 import sys
 import time
 import urllib.parse
@@ -34,7 +35,17 @@ API = "https://www.pokewiki.de/api.php"
 AGENT = "HoloChase/1.0 (private collection tracker; github.com/miXXed234)"
 
 CARD_WIDTH = 500
+LOGO_WIDTH = 480
 PAUSE = 0.4
+
+# Our set id -> the PokeWiki file holding that set's German logo, for sets
+# TCGdex serves no German one for (it 404s on /de for Hidden Fates, where the
+# English logo is fine). A sub-set wears its parent's logo, so two ids can name
+# the same file.
+GERMAN_LOGOS = {
+    "sm115": "Verborgenes Schicksal Logo.png",  # Hidden Fates
+    "sma": "Verborgenes Schicksal Logo.png",    # its Shiny Vault
+}
 
 # Our card id -> the PokeWiki file holding that card, without the "Datei:".
 # TCGdex lists 16 cards for the Mega Evolution energies and pictures none; the
@@ -87,6 +98,50 @@ def save_card(raw, path):
     image.resize((CARD_WIDTH, height), Image.LANCZOS).save(path, "JPEG", quality=82, optimize=True)
 
 
+def save_logo(raw, path):
+    image = Image.open(BytesIO(raw)).convert("RGBA")
+    width = min(LOGO_WIDTH, image.width)
+    height = round(image.height * width / image.width)
+    image.resize((width, height), Image.LANCZOS).save(path, "PNG", optimize=True)
+
+
+def slug(set_id):
+    return re.sub(r"[^a-z0-9]", "_", set_id.lower()) + ".png"
+
+
+def fetch_german_logos(chosen):
+    """Writes the German set logos listed in GERMAN_LOGOS, skipping any on disk."""
+    wanted = {
+        set_id: title for set_id, title in GERMAN_LOGOS.items()
+        if (not chosen or set_id in chosen)
+        and not (ROOT / "images" / "logos" / "de" / slug(set_id)).exists()
+    }
+    if not wanted:
+        return 0
+
+    logo_file = ROOT / "src" / "set_logos.json"
+    catalogue = json.loads(logo_file.read_text(encoding="utf-8"))
+    urls = file_urls(sorted(set(wanted.values())))
+    done = 0
+    for set_id, title in sorted(wanted.items()):
+        url = urls.get(title)
+        if not url:
+            print(f"  ! {set_id}: PokeWiki has no \"{title}\"")
+            continue
+        time.sleep(PAUSE)
+        try:
+            save_logo(fetch(url), ROOT / "images" / "logos" / "de" / slug(set_id))
+        except Exception as error:
+            print(f"  ! {set_id}: {error}")
+            continue
+        catalogue["logosDe"][set_id] = slug(set_id)
+        done += 1
+        print(f"  {set_id}: German logo from \"{title}\"")
+
+    logo_file.write_text(json.dumps(catalogue, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    return done
+
+
 def main():
     chosen = sys.argv[1:]
     wanted = {
@@ -94,8 +149,9 @@ def main():
         if (not chosen or card_id.rsplit("-", 1)[0] in chosen)
         and not (ROOT / "images" / "cards" / f"{card_id}.jpg").exists()
     }
+    logos = fetch_german_logos(set(chosen))
     if not wanted:
-        print("nothing to do, every listed card is already on disk")
+        print(f"\n{logos} German logos, no cards to fetch. Now run: node tools/build.mjs")
         return
 
     urls = file_urls(sorted(set(wanted.values())))

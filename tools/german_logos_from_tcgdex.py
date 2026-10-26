@@ -48,6 +48,7 @@ PARENTS = {
     "swsh12tg": "swsh12",      # Silberne Sturmwinde
     "swsh12.5gg": "swsh12.5",  # Zenit der Könige
     "cel25cc": "cel25",        # Celebrations
+    "swsh4.5sv": "swsh4.5",    # Glänzendes Schicksal, dessen Shiny Vault
 }
 
 # Sub-sets whose parent has no German logo at TCGdex either, but whose German
