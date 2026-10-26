@@ -178,7 +178,8 @@
     "swsh9tg": "swsh9tg.png",
     "swsh10tg": "swsh10tg.png",
     "swsh12tg": "swsh12tg.png",
-    "cel25cc": "cel25cc.png"
+    "cel25cc": "cel25cc.png",
+    "mee": "mee.png"
   },
   "logosDe": {
     "base1": "base1.png",
@@ -258,6 +259,14 @@
     "xy7": "xy7.png",
     "xy8": "xy8.png",
     "xy9": "xy9.png",
-    "30th": "30th.png"
+    "30th": "30th.png",
+    "mee": "mee.png",
+    "cel25cc": "cel25cc.png",
+    "swsh10tg": "swsh10tg.png",
+    "swsh11tg": "swsh11tg.png",
+    "swsh12.5gg": "swsh12_5gg.png",
+    "swsh12tg": "swsh12tg.png",
+    "swsh9tg": "swsh9tg.png",
+    "30th-c": "30th_c.png"
   }
 }
