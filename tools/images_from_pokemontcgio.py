@@ -54,11 +54,15 @@ AGENT = "HoloChase/1.0 (private collection tracker; github.com/miXXed234)"
 SETS = {
     "30th": "me55",
     "30th-c": "me55c",
+    # Trainer Gallery: TCGdex has the 30 cards but pictures none of them, and
+    # serves no logo either. Both catalogues number it TG01-TG30, so the number
+    # rule pairs it without help.
+    "swsh11tg": "swsh11tg",
 }
 
 # Sets whose logo we want, even when their cards are already pictured. The 30th
 # logo is shared by both sets; TCGdex serves none for either.
-LOGOS = {"30th", "30th-c"}
+LOGOS = {"30th", "30th-c", "swsh11tg"}
 
 # Cards the name rule cannot pair, with the name they carry on the other side.
 OVERRIDES = {
