@@ -54,15 +54,23 @@ AGENT = "HoloChase/1.0 (private collection tracker; github.com/miXXed234)"
 SETS = {
     "30th": "me55",
     "30th-c": "me55c",
-    # Trainer Gallery: TCGdex has the 30 cards but pictures none of them, and
-    # serves no logo either. Both catalogues number it TG01-TG30, so the number
-    # rule pairs it without help.
+    # The four Trainer Galleries: TCGdex has their 30 cards each and pictures
+    # none of them, and serves no logo either. Both catalogues number them
+    # TG01-TG30, so the number rule pairs them without help.
+    "swsh9tg": "swsh9tg",
+    "swsh10tg": "swsh10tg",
     "swsh11tg": "swsh11tg",
+    "swsh12tg": "swsh12tg",
+    # Logo only: the Classic Collection's cards are already covered here by
+    # fallback urls. Its sibling set of energies is deliberately absent --
+    # pokemontcg.io answers for that one with the generic "Pokemon Trading Card
+    # Game" wordmark, which names no set and would look the same on every tile.
+    "cel25cc": "cel25c",
 }
 
 # Sets whose logo we want, even when their cards are already pictured. The 30th
-# logo is shared by both sets; TCGdex serves none for either.
-LOGOS = {"30th", "30th-c", "swsh11tg"}
+# logo is shared by both sets; TCGdex serves none for any of these.
+LOGOS = set(SETS)
 
 # Cards the name rule cannot pair, with the name they carry on the other side.
 OVERRIDES = {
@@ -78,6 +86,10 @@ RETRIES = 5        # the free endpoint throws the odd 500/502
 def slug(set_id):
     """The logo filename for a set id, as the existing entries spell it."""
     return re.sub(r"[^a-z0-9]", "_", set_id.lower()) + ".png"
+
+
+def readJson(path):
+    return json.loads((ROOT / path).read_text(encoding="utf-8"))
 
 
 def norm(name):
@@ -196,14 +208,19 @@ def run(set_id, their_id, logos):
     # image for an identical one and carry the weight in the repository for
     # nothing -- the first run did exactly that for all 161 cards of `30th`.
     # A card already on disk is kept without asking, so a set that is done
-    # costs nothing to re-run.
+    # costs nothing to re-run. A card already served by a fallback url is left
+    # alone too: the app shows it either way, and copying it here would only
+    # add weight -- the Classic Collection's 25 cards are all in that list.
+    fallback = set(readJson("src/fallback/card_images.json"))
     ours = [
         c for c in our_cards(set_id)
-        if not (ROOT / "images" / "cards" / f"{c['id']}.jpg").exists() and not pictured(c)
+        if c["id"] not in fallback
+        and not (ROOT / "images" / "cards" / f"{c['id']}.jpg").exists()
+        and not pictured(c)
     ]
     if not ours:
         print(f"{set_id:8s} logo {'new' if got_logo else 'kept'}, "
-              f"no cards to fetch (TCGdex pictures them all)")
+              f"no cards missing a picture")
         return got_logo, 0
 
     theirs = their_cards(their_id)
