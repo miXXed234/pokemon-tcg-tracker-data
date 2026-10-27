@@ -172,9 +172,11 @@
     "XY8a": "xy8a.png",
     "XY8b": "xy8b.png",
     "XY9": "xy9.png",
+    "bw11": "bw11.png",
     "cel25cc": "cel25cc.png",
     "ex5.5": "ex5_5.png",
     "exu": "exu.png",
+    "jumbo": "jumbo.png",
     "me05": "me05.png",
     "mee": "mee.png",
     "mfb": "mfb.png",
@@ -204,8 +206,7 @@
     "tk-ex-latio": "tk_ex_latio.png",
     "tk-ex-m": "tk_ex_m.png",
     "tk-ex-p": "tk_ex_p.png",
-    "web1": "web1.png",
-    "bw11": "bw11.png"
+    "web1": "web1.png"
   },
   "logosDe": {
     "base2": "base2.png",
