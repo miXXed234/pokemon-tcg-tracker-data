@@ -38,6 +38,14 @@ for (const [dir, map] of [['images/logos', logos], ['images/logos/de', logosDe]]
   }
 }
 
+// The symbol printed next to a card's collector number, for the set browser's
+// toggle. Named by set id, so the index is the directory itself -- unlike the
+// logos, whose filenames came from the old drawable names.
+const setSymbols = readdirSync(join(ROOT, 'images/symbols'))
+  .filter((f) => f.endsWith('.png'))
+  .map((f) => f.slice(0, -'.png'.length))
+  .sort();
+
 const cardImages = readdirSync(join(ROOT, 'images/cards'))
   .filter((f) => f.endsWith('.jpg'))
   .map((f) => f.slice(0, -'.jpg'.length))
@@ -54,6 +62,7 @@ const data = {
   setLogos: logos,
   setLogosDe: logosDe,
   setCodes,
+  setSymbols,
   fallbackImages: readJson('src/fallback/card_images.json'),
   supplements: readSetFiles('src/manual_cards'),
   seeds: readSetFiles('src/promo_seed'),
@@ -69,6 +78,7 @@ console.log(`data.json: ${kb(JSON.stringify(data).length)}`);
 console.log(`  card images   ${cardImages.length}`);
 console.log(`  set logos     ${Object.keys(logos).length} (+ ${Object.keys(logosDe).length} german)`);
 console.log(`  set codes     ${Object.keys(setCodes).length}`);
+console.log(`  set symbols   ${setSymbols.length}`);
 console.log(`  fallback urls ${Object.keys(data.fallbackImages).length}`);
 console.log(`  supplements   ${Object.entries(data.supplements).map(([k, v]) => `${k}:${v.length}`).join(' ')}`);
 console.log(`  seeds         ${Object.entries(data.seeds).map(([k, v]) => `${k}:${v.length}`).join(' ')}`);
