@@ -1,4 +1,4 @@
-"""Downloads the symbol printed on a card into images/symbols/<setId>.png.
+"""Downloads the symbol printed on a card into images/symbols/.
 
 The set browser can swap its logos for these, because the symbol is what is
 actually printed in a card's bottom-left corner -- on the older sets it is the
@@ -6,11 +6,11 @@ actually printed in a card's bottom-left corner -- on the older sets it is the
 
 Two sources, in this order:
 
-  TCGdex, for the 149 sets it has one for. Its own `symbol` field in the set
-  list is served under a `/univ/` path that answers 400 InvalidBucketName, so
-  the path is rebuilt with a language segment; and the field is missing for
-  sets whose image does exist, so the logo folder is probed as well. Both
-  extensions are tried: a good number of sets have only one of them.
+  TCGdex, for the sets it has one for. Its own `symbol` field in the set list
+  is served under a `/univ/` path that answers 400 InvalidBucketName, so the
+  path is rebuilt with a language segment; and the field is missing for sets
+  whose image does exist, so the logo folder is probed as well. Both extensions
+  are tried: a good number of sets have only one of them.
 
   PokeCardex's CDN for the gaps, keyed by the code printed on the card. Only
   where that code is unambiguous -- its own slugs for the older sets are
@@ -20,6 +20,10 @@ Two sources, in this order:
 
 Sub-sets inherit their parent's file, which is correct -- a Trainer Gallery
 card carries the parent set's symbol. Their code says so: "LOR:TG".
+
+Japanese sets are handled by jp_from_pokecardex.py and live under
+images/symbols/ja/. They must: `SM12` and `sm12` are two different sets, and
+on a case-insensitive filesystem one file would quietly overwrite the other.
 
 Run: python tools/set_symbols.py
 Then: node tools/build.mjs
@@ -35,6 +39,7 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "images" / "symbols"
+INDEX = ROOT / "src" / "set_symbols.json"
 AGENT = "HoloChase/1.0 (private collection tracker; github.com/miXXed234)"
 PCX = "https://pokecardex.b-cdn.net/assets/images/symboles/%s.png"
 
@@ -46,13 +51,17 @@ OVERRIDES = {
     "mfb": "MFB23",   # My First Battle
 }
 
-
-# Sets PokeCardex draws a badge for that no card actually carries. Base Set
-# famously prints no expansion symbol at all (checked against base1-4), and the
-# McDonald's cards do not print the "M23"/"M24" PokeCardex shows. Skipped, the
-# same way the trainer kits are: a tile must not claim something the card
-# doesn't have.
-NO_SYMBOL = {"base1", "2023sv", "2024sv"}
+# Base Set famously prints no expansion symbol at all (checked against
+# base1-4), and PokeCardex still draws a pokeball placeholder for it. A tile
+# must not claim something the card does not have.
+#
+# The McDonald's sets were on this list too, on the reasoning that no card
+# prints the "M23"/"M24" badge PokeCardex shows. That was wrong: our own logo
+# folder carried the identical images from an unrelated earlier source, filed
+# as logos, and two independent sources agreeing is what settles it. The
+# McDonald's year symbols are real; the evidence against them turned out to be
+# a mismatched card scan of our own.
+NO_SYMBOL = {"base1"}
 
 
 def fetch(url, tries=3):
@@ -78,36 +87,32 @@ def fetch(url, tries=3):
         else:
             # An error page is still bytes; anything this small is not an image.
             return body if len(body) > 100 else None
-    if last and getattr(last, "code", None) not in (400, 404):
+    if last:
         print(f"      {url}: {last}")
     return None
 
 
-def api(path):
-    return json.loads(fetch(f"https://api.tcgdex.net/v2/{path}").decode())
+def save(data, path):
+    """Returns False for a blank placeholder, which is not a symbol.
 
-
-def tcgdex_candidates(entry, lang):
-    bases = []
-    if entry.get("symbol"):
-        bases.append(entry["symbol"].replace("/univ/", f"/{lang}/"))
-    if entry.get("logo"):
-        bases.append(entry["logo"].rsplit("/", 1)[0] + "/symbol")
-    return [b + ext for b in dict.fromkeys(bases) for ext in (".webp", ".png")]
-
-
-def save(data, set_id):
-    """Normalised to PNG so the app can index the folder by set id alone.
-
-    Returns False for a fully transparent placeholder: a set that prints no
-    symbol still has a file on some sources, and drawing it leaves an empty
-    tile with nothing to fall back to.
+    A set that prints none still has a file on some sources: PokeCardex's
+    Japanese Base Set is a fully transparent 40x40, and drawing it leaves an
+    empty tile with nothing to fall back to.
     """
     img = Image.open(io.BytesIO(data)).convert("RGBA")
     if not any(v > 10 for v in img.getchannel("A").get_flattened_data()):
         return False
-    img.save(OUT / f"{set_id}.png", "PNG", optimize=True)
+    img.save(path, "PNG", optimize=True)
     return True
+
+
+def candidates(entry):
+    bases = []
+    if entry.get("symbol"):
+        bases.append(entry["symbol"].replace("/univ/", "/en/"))
+    if entry.get("logo"):
+        bases.append(entry["logo"].rsplit("/", 1)[0] + "/symbol")
+    return [b + ext for b in dict.fromkeys(bases) for ext in (".webp", ".png")]
 
 
 def main():
@@ -117,31 +122,29 @@ def main():
     for set_id, code in codes.items():
         by_code.setdefault(code, []).append(set_id)
 
-    sets = {"en": api("en/sets"), "ja": api("ja/sets")}
-    done, pcx_used, missing = {}, [], []
+    index = json.loads(INDEX.read_text("utf-8")) if INDEX.exists() else {}
+    sets = json.loads(fetch("https://api.tcgdex.net/v2/en/sets").decode())
 
-    for lang, entries in sets.items():
-        for entry in entries:
-            set_id = entry["id"]
-            if (OUT / f"{set_id}.png").exists():
-                done[set_id] = "kept"
-                continue
-            for url in tcgdex_candidates(entry, lang):
-                body = fetch(url)
-                if body and save(body, set_id):
-                    done[set_id] = "tcgdex"
-                    break
-            if set_id in done:
-                continue
+    from_tcgdex, from_pcx, missing = [], [], []
+    for entry in sets:
+        set_id = entry["id"]
+        for url in candidates(entry):
+            body = fetch(url)
+            if body and save(body, OUT / f"{set_id}.png"):
+                index[set_id] = f"{set_id}.png"
+                from_tcgdex.append(set_id)
+                break
+        if set_id in from_tcgdex:
+            continue
 
-            slug = None if set_id in NO_SYMBOL else (OVERRIDES.get(set_id) or codes.get(set_id))
-            if slug and ":" not in (slug or ""):
-                body = fetch(PCX % slug)
-                if body and save(body, set_id):
-                    done[set_id] = "pokecardex"
-                    pcx_used.append(f"{set_id}={slug}")
-                    continue
-            missing.append(set_id)
+        slug = None if set_id in NO_SYMBOL else (OVERRIDES.get(set_id) or codes.get(set_id))
+        if slug and ":" not in slug:
+            body = fetch(PCX % slug)
+            if body and save(body, OUT / f"{set_id}.png"):
+                index[set_id] = f"{set_id}.png"
+                from_pcx.append(f"{set_id}={slug}")
+                continue
+        missing.append(set_id)
 
     # A sub-set prints its parent's symbol; its code spells the parent out.
     inherited = []
@@ -153,18 +156,17 @@ def main():
             src = OUT / f"{parent}.png"
             if src.exists():
                 (OUT / f"{set_id}.png").write_bytes(src.read_bytes())
+                index[set_id] = f"{set_id}.png"
                 inherited.append(f"{set_id}<-{parent}")
                 missing.remove(set_id)
                 break
 
-    kinds = {}
-    for kind in done.values():
-        kinds[kind] = kinds.get(kind, 0) + 1
-    print(f"symbols in images/symbols: {len(list(OUT.glob('*.png')))}")
-    print(f"  this run: {kinds}")
-    print(f"  pokecardex: {' '.join(pcx_used) or '-'}")
-    print(f"  inherited:  {' '.join(inherited) or '-'}")
-    print(f"  no symbol:  {len(missing)}")
+    INDEX.write_text(json.dumps(dict(sorted(index.items())), indent=2) + "\n", "utf-8")
+    print(f"international sets: {len(sets)}")
+    print(f"  from tcgdex    {len(from_tcgdex)}")
+    print(f"  from pokecardex {len(from_pcx)}: {' '.join(from_pcx)}")
+    print(f"  inherited      {len(inherited)}: {' '.join(inherited)}")
+    print(f"  no symbol      {len(missing)}")
 
 
 if __name__ == "__main__":

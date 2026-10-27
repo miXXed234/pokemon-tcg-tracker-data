@@ -30,21 +30,20 @@ const { logos, logosDe } = readJson('src/set_logos.json');
 // a set released from now on fills its own in on the app side.
 const setCodes = readJson('src/set_codes.json');
 
+// The symbol printed next to a card's collector number, for the set browser's
+// toggle. A map rather than a directory listing, like the logos: `SM12` and
+// `sm12` are two different sets, and a case-insensitive filesystem cannot hold
+// both files side by side, so the Japanese ones live under `ja/`.
+const setSymbols = readJson('src/set_symbols.json');
+
 // A logo entry pointing at a missing file would render as a blank tile in the
 // app with no hint why, so fail the build instead.
-for (const [dir, map] of [['images/logos', logos], ['images/logos/de', logosDe]]) {
+for (const [dir, map] of [['images/logos', logos], ['images/logos/de', logosDe],
+                          ['images/symbols', setSymbols]]) {
   for (const [setId, file] of Object.entries(map)) {
     if (!existsSync(join(ROOT, dir, file))) throw new Error(`${dir}/${file} missing (set ${setId})`);
   }
 }
-
-// The symbol printed next to a card's collector number, for the set browser's
-// toggle. Named by set id, so the index is the directory itself -- unlike the
-// logos, whose filenames came from the old drawable names.
-const setSymbols = readdirSync(join(ROOT, 'images/symbols'))
-  .filter((f) => f.endsWith('.png'))
-  .map((f) => f.slice(0, -'.png'.length))
-  .sort();
 
 const cardImages = readdirSync(join(ROOT, 'images/cards'))
   .filter((f) => f.endsWith('.jpg'))
@@ -78,7 +77,7 @@ console.log(`data.json: ${kb(JSON.stringify(data).length)}`);
 console.log(`  card images   ${cardImages.length}`);
 console.log(`  set logos     ${Object.keys(logos).length} (+ ${Object.keys(logosDe).length} german)`);
 console.log(`  set codes     ${Object.keys(setCodes).length}`);
-console.log(`  set symbols   ${setSymbols.length}`);
+console.log(`  set symbols   ${Object.keys(setSymbols).length}`);
 console.log(`  fallback urls ${Object.keys(data.fallbackImages).length}`);
 console.log(`  supplements   ${Object.entries(data.supplements).map(([k, v]) => `${k}:${v.length}`).join(' ')}`);
 console.log(`  seeds         ${Object.entries(data.seeds).map(([k, v]) => `${k}:${v.length}`).join(' ')}`);

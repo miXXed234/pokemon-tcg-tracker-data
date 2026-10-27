@@ -22,6 +22,11 @@ Two deliberate limits:
   the Japanese booster reads 一撃マスター -- so an existing logo is left alone
   rather than swapped for one that might be the wrong edition.
 
+Japanese symbols live in their own folder. They must: `SM12` and `sm12` are two
+different sets in two different mounts, and on a case-insensitive filesystem one
+file quietly overwrites the other -- which is exactly what happened, handing
+fourteen international sets the symbol of their Japanese namesake.
+
 Run: python tools/jp_from_pokecardex.py
 Then: node tools/build.mjs
 """
@@ -35,7 +40,8 @@ from pathlib import Path
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parent.parent
-SYMBOLS = ROOT / "images" / "symbols"
+SYMBOLS = ROOT / "images" / "symbols" / "ja"
+INDEX = ROOT / "src" / "set_symbols.json"
 LOGOS = ROOT / "images" / "logos"
 AGENT = "HoloChase/1.0 (private collection tracker; github.com/miXXed234)"
 CDN = "https://pokecardex.b-cdn.net/assets/images/%s/%s.png"
@@ -112,11 +118,14 @@ def main():
                 slugs[set_id] = guess
                 break
 
+    SYMBOLS.mkdir(parents=True, exist_ok=True)
+    symbol_index = json.loads(INDEX.read_text("utf-8")) if INDEX.exists() else {}
     logo_index = json.loads((ROOT / "src" / "set_logos.json").read_text("utf-8"))
     got_symbol, got_logo = [], []
     for set_id, slug in sorted(slugs.items()):
         body = fetch(CDN % ("symboles_jp", slug))
         if body and save(body, SYMBOLS / f"{set_id}.png"):
+            symbol_index[set_id] = f"ja/{set_id}.png"
             got_symbol.append(set_id)
         # An existing logo stays: a few entries here are the Chinese edition.
         if set_id in logo_index["logos"]:
@@ -128,6 +137,7 @@ def main():
                 logo_index["logos"][set_id] = name
                 got_logo.append(set_id)
 
+    INDEX.write_text(json.dumps(dict(sorted(symbol_index.items())), indent=2) + chr(10), "utf-8")
     logo_index["logos"] = dict(sorted(logo_index["logos"].items()))
     (ROOT / "src" / "set_logos.json").write_text(
         json.dumps(logo_index, indent=2, ensure_ascii=False) + "\n", "utf-8")
