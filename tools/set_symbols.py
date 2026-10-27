@@ -27,6 +27,7 @@ Then: node tools/build.mjs
 import io
 import json
 import time
+import urllib.error
 import urllib.request
 from pathlib import Path
 
@@ -63,10 +64,20 @@ def fetch(url, tries=3):
             req = urllib.request.Request(url, headers={"User-Agent": AGENT})
             with urllib.request.urlopen(req, timeout=45) as resp:
                 body = resp.read()
+        except urllib.error.HTTPError as exc:
+            # 404 is an answer, not a hiccup: this url is also how a slug guess
+            # is tested, and retrying every miss three times with backoff turns
+            # a two minute run into ten.
+            if exc.code in (400, 404):
+                return None
+            last = exc
+            continue
+        except Exception as exc:  # noqa: BLE001 - any other failure is worth a retry
+            last = exc
+            continue
+        else:
             # An error page is still bytes; anything this small is not an image.
             return body if len(body) > 100 else None
-        except Exception as exc:  # noqa: BLE001 - any failure means "try the next candidate"
-            last = exc
     if last and getattr(last, "code", None) not in (400, 404):
         print(f"      {url}: {last}")
     return None
