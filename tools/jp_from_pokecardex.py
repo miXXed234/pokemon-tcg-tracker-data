@@ -1,31 +1,23 @@
-"""Japanese set symbols, and logos for the sets that still have none.
+"""Japanese set logos for the sets that still have none.
 
-TCGdex barely illustrates its Japanese mount: no logo for any of the 186 sets
-and a symbol for four. PokeCardex keeps a separate Japanese zone
-(`/jp/series?zone=jp`, reachable only by clicking the flag) with both, for 236
-sets, under `symboles_jp/` and `logos_jp/`.
+TCGdex serves no logo at all for any of its 186 Japanese sets. PokeCardex keeps
+a separate Japanese zone (`/jp/series?zone=jp`, reachable only by clicking the
+flag above a list that calls itself international) with one for 236 of them.
 
-Its slugs are TCGdex's ids in upper case, give or take: `M6a` is `M6A`, `SV-P`
-is `SVP`, and `SM1+` is `SM1P`. [HAND] covers the families where that rule
-breaks, and every one of those was checked against the logo artwork rather than
-against TCGdex's Japanese set *names*, which are not trustworthy here -- fifteen
-sets share the name "トリプレットビート", and `CP5` carries the name of `XY11b`.
+Symbols are not this tool's job any more -- set_symbols.py takes those for both
+mounts from the same source.
 
-Two deliberate limits:
+Logos only fill a gap here. Some entries in that zone are the Traditional
+Chinese printing -- `S5I` is 一撃大師 where the Japanese booster reads
+一撃マスター -- so an existing logo is left alone rather than swapped for one
+that might be the wrong edition.
 
-  Symbols are taken for every matched set. The expansion symbol is the same
-  glyph whatever language the card was printed in, so there is nothing to get
-  wrong.
-
-  Logos are only written where we have none. Some entries in PokeCardex's
-  Japanese zone are the Traditional Chinese edition -- `S5I` is 一撃大師 where
-  the Japanese booster reads 一撃マスター -- so an existing logo is left alone
-  rather than swapped for one that might be the wrong edition.
-
-Japanese symbols live in their own folder. They must: `SM12` and `sm12` are two
-different sets in two different mounts, and on a case-insensitive filesystem one
-file quietly overwrites the other -- which is exactly what happened, handing
-fourteen international sets the symbol of their Japanese namesake.
+[HAND] covers the families where upper-casing the id does not land on
+PokeCardex's slug. The paired sets are the dangerous ones: both sources number
+them a/b, but PokeCardex letters them after the name, so our `XY8a` (Blue
+Shock) is its `XY8B` while our `XY8b` (Red Flash) is its `XY8R`. Each pair was
+read off the logo artwork, because TCGdex's Japanese set *names* are not
+trustworthy here: fifteen sets share one name, and `CP5` carries `XY11b`'s.
 
 Run: python tools/jp_from_pokecardex.py
 Then: node tools/build.mjs
@@ -40,8 +32,6 @@ from pathlib import Path
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parent.parent
-SYMBOLS = ROOT / "images" / "symbols" / "ja"
-INDEX = ROOT / "src" / "set_symbols.json"
 LOGOS = ROOT / "images" / "logos"
 AGENT = "HoloChase/1.0 (private collection tracker; github.com/miXXed234)"
 CDN = "https://pokecardex.b-cdn.net/assets/images/%s/%s.png"
@@ -118,15 +108,9 @@ def main():
                 slugs[set_id] = guess
                 break
 
-    SYMBOLS.mkdir(parents=True, exist_ok=True)
-    symbol_index = json.loads(INDEX.read_text("utf-8")) if INDEX.exists() else {}
     logo_index = json.loads((ROOT / "src" / "set_logos.json").read_text("utf-8"))
-    got_symbol, got_logo = [], []
+    got_logo = []
     for set_id, slug in sorted(slugs.items()):
-        body = fetch(CDN % ("symboles_jp", slug))
-        if body and save(body, SYMBOLS / f"{set_id}.png"):
-            symbol_index[set_id] = f"ja/{set_id}.png"
-            got_symbol.append(set_id)
         # An existing logo stays: a few entries here are the Chinese edition.
         if set_id in logo_index["logos"]:
             continue
@@ -137,13 +121,11 @@ def main():
                 logo_index["logos"][set_id] = name
                 got_logo.append(set_id)
 
-    INDEX.write_text(json.dumps(dict(sorted(symbol_index.items())), indent=2) + chr(10), "utf-8")
     logo_index["logos"] = dict(sorted(logo_index["logos"].items()))
     (ROOT / "src" / "set_logos.json").write_text(
         json.dumps(logo_index, indent=2, ensure_ascii=False) + "\n", "utf-8")
 
     print(f"japanese sets: {len(sets)}, matched {len(slugs)}")
-    print(f"  symbols written {len(got_symbol)}")
     print(f"  logos filled    {len(got_logo)}")
     print(f"  unmatched       {sorted(s['id'] for s in sets if s['id'] not in slugs)}")
 
