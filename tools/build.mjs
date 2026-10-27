@@ -25,6 +25,11 @@ function readSetFiles(dir) {
 
 const { logos, logosDe } = readJson('src/set_logos.json');
 
+// The short code printed on a card (POR, CRI, PBL), for the set browser's
+// toggle. Seeded here because TCGdex serves it only in the per-set detail;
+// a set released from now on fills its own in on the app side.
+const setCodes = readJson('src/set_codes.json');
+
 // A logo entry pointing at a missing file would render as a blank tile in the
 // app with no hint why, so fail the build instead.
 for (const [dir, map] of [['images/logos', logos], ['images/logos/de', logosDe]]) {
@@ -48,6 +53,7 @@ const data = {
   cardImages,
   setLogos: logos,
   setLogosDe: logosDe,
+  setCodes,
   fallbackImages: readJson('src/fallback/card_images.json'),
   supplements: readSetFiles('src/manual_cards'),
   seeds: readSetFiles('src/promo_seed'),
@@ -62,6 +68,7 @@ const kb = (n) => `${Math.round(n / 1024)} KB`;
 console.log(`data.json: ${kb(JSON.stringify(data).length)}`);
 console.log(`  card images   ${cardImages.length}`);
 console.log(`  set logos     ${Object.keys(logos).length} (+ ${Object.keys(logosDe).length} german)`);
+console.log(`  set codes     ${Object.keys(setCodes).length}`);
 console.log(`  fallback urls ${Object.keys(data.fallbackImages).length}`);
 console.log(`  supplements   ${Object.entries(data.supplements).map(([k, v]) => `${k}:${v.length}`).join(' ')}`);
 console.log(`  seeds         ${Object.entries(data.seeds).map(([k, v]) => `${k}:${v.length}`).join(' ')}`);
