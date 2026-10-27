@@ -97,10 +97,17 @@ def tcgdex_candidates(entry, lang):
 
 
 def save(data, set_id):
-    """Normalised to PNG so the app can index the folder by set id alone."""
-    img = Image.open(io.BytesIO(data))
-    img = img.convert("RGBA")
+    """Normalised to PNG so the app can index the folder by set id alone.
+
+    Returns False for a fully transparent placeholder: a set that prints no
+    symbol still has a file on some sources, and drawing it leaves an empty
+    tile with nothing to fall back to.
+    """
+    img = Image.open(io.BytesIO(data)).convert("RGBA")
+    if not any(v > 10 for v in img.getchannel("A").get_flattened_data()):
+        return False
     img.save(OUT / f"{set_id}.png", "PNG", optimize=True)
+    return True
 
 
 def main():
@@ -121,8 +128,7 @@ def main():
                 continue
             for url in tcgdex_candidates(entry, lang):
                 body = fetch(url)
-                if body:
-                    save(body, set_id)
+                if body and save(body, set_id):
                     done[set_id] = "tcgdex"
                     break
             if set_id in done:
@@ -131,8 +137,7 @@ def main():
             slug = None if set_id in NO_SYMBOL else (OVERRIDES.get(set_id) or codes.get(set_id))
             if slug and ":" not in (slug or ""):
                 body = fetch(PCX % slug)
-                if body:
-                    save(body, set_id)
+                if body and save(body, set_id):
                     done[set_id] = "pokecardex"
                     pcx_used.append(f"{set_id}={slug}")
                     continue

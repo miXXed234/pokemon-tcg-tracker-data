@@ -85,7 +85,17 @@ def fetch(url, tries=3):
 
 
 def save(data, path):
-    Image.open(io.BytesIO(data)).convert("RGBA").save(path, "PNG", optimize=True)
+    """Returns False for a blank placeholder, which is not a symbol.
+
+    A set that prints none still has a file here: the Japanese Base Set
+    (PMCG1) is a fully transparent 40x40, and drawing it leaves an empty
+    tile with nothing to fall back to.
+    """
+    img = Image.open(io.BytesIO(data)).convert("RGBA")
+    if not any(v > 10 for v in img.getchannel("A").get_flattened_data()):
+        return False
+    img.save(path, "PNG", optimize=True)
+    return True
 
 
 def main():
@@ -106,8 +116,7 @@ def main():
     got_symbol, got_logo = [], []
     for set_id, slug in sorted(slugs.items()):
         body = fetch(CDN % ("symboles_jp", slug))
-        if body:
-            save(body, SYMBOLS / f"{set_id}.png")
+        if body and save(body, SYMBOLS / f"{set_id}.png"):
             got_symbol.append(set_id)
         # An existing logo stays: a few entries here are the Chinese edition.
         if set_id in logo_index["logos"]:
@@ -115,9 +124,9 @@ def main():
         body = fetch(CDN % ("logos_jp", slug))
         if body:
             name = f"{set_id.replace('+', '_').replace('.', '_')}.png"
-            save(body, LOGOS / name)
-            logo_index["logos"][set_id] = name
-            got_logo.append(set_id)
+            if save(body, LOGOS / name):
+                logo_index["logos"][set_id] = name
+                got_logo.append(set_id)
 
     logo_index["logos"] = dict(sorted(logo_index["logos"].items()))
     (ROOT / "src" / "set_logos.json").write_text(
